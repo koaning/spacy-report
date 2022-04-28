@@ -4,7 +4,7 @@
 
 > It's pronounced "accura-see". For spaCy models.
 
-The goal of this project is to generate reports for spaCy models.
+The goal of this project is to generate reports for [spaCy](https://spacy.io/) models.
 
 ## what it does
 
