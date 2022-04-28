@@ -2,7 +2,7 @@ import pathlib
 from setuptools import setup, find_packages
 
 
-base_packages = ["spacy>=3.0.0", "altair>=4.2.0", "clumper>=0.2.15", "rich>=12.3.0"]
+base_packages = ["spacy>=3.0.0", "altair>=4.2.0", "clumper>=0.2.15", "rich>=12.3.0", "scikit-learn>=1.0.0"]
 
 dev_packages = [
     "flake8>=3.6.0",
