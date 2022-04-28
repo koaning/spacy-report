@@ -1,16 +1,18 @@
+import pathlib
+import warnings
+from pkg_resources import resource_filename
+
 import spacy
 from spacy.tokens import DocBin
 import typer
-import pathlib
-import warnings
 import altair as alt
 from rich.progress import track
 from rich.console import Console
-from pkg_resources import resource_filename
 from jinja2 import Environment, select_autoescape, FileSystemLoader
 
 from accuracy._charts import make_plots
 from accuracy import __version__
+
 
 app = typer.Typer(
     name="accuraCy",
