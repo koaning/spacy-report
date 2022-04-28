@@ -9,7 +9,7 @@ base_packages = [
     "rich>=12.3.0",
     "scikit-learn>=1.0.0",
     "typer>=0.3.0",
-    "Jinja2>=3.1.1"
+    "Jinja2>=3.1.1",
 ]
 
 dev_packages = [
@@ -17,7 +17,7 @@ dev_packages = [
     "pytest>=4.0.2",
     "pre-commit>=2.17.0",
     "interrogate>=1.5.0",
-    "black>=22.3.0",
+    "black>=21.0.0",
 ]
 
 setup(
