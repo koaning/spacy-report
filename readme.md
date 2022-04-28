@@ -1,6 +1,6 @@
 <img src="https://github.com/koaning/accuraCy/raw/main/icon.png" width=175 height=175 align="right">
 
-## accuraCy
+# accuraCy
 
 > It's pronounced "accura-see". For spaCy models.
 
