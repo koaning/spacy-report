@@ -77,13 +77,14 @@ def create_line_chart(dataf, x_col, y_col, group_col):
 
 def make_plots(orig_data, pred_data, tag):
     """Creates a 2x2 grid of charts for debugging."""
-    orig_dictlist = [{'text': _.text, 'labels': _.cats} for _ in orig_data]
+    orig_dictlist = [{"text": _.text, "labels": _.cats} for _ in orig_data]
     combined = [{**clump, "pred": d.cats} for clump, d in zip(orig_dictlist, pred_data)]
 
     conf_data = (
         Clumper(combined)
-        .mutate(confidence=lambda d: d["pred"][tag], 
-                hit=lambda d: d["labels"][tag] == 1.0)
+        .mutate(
+            confidence=lambda d: d["pred"][tag], hit=lambda d: d["labels"][tag] == 1.0
+        )
         .collect()
     )
 

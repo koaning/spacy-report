@@ -16,12 +16,21 @@ def test_version():
 
 def test_smoke_test(tmpdir):
     """Merely a smoke test to make sure that 'it can run'."""
-    result = runner.invoke(app, ["report", "training/model-best/", "tests/data/train.spacy", "tests/data/train.spacy", str(tmpdir)])
+    result = runner.invoke(
+        app,
+        [
+            "report",
+            "training/model-best/",
+            "tests/data/train.spacy",
+            "tests/data/train.spacy",
+            str(tmpdir),
+        ],
+    )
     assert result.exit_code == 0
 
     # This model is taught to predict two classes.
-    # We expect two charts, ie. two json files, per class. 
+    # We expect two charts, ie. two json files, per class.
     assert list(Path(tmpdir).glob("*.json")) == 4
-    
+
     # We mention the path in the stdout, so we can check that it's there.
     assert str(tmpdir) not in result.stdout

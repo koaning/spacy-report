@@ -8,7 +8,7 @@ import spacy
 from spacy.tokens import DocBin
 
 
-def convert(lang: str, input_path: Path, output_path: Path, tags_of_interest:str):
+def convert(lang: str, input_path: Path, output_path: Path, tags_of_interest: str):
     """Convert textcat annotation from JSONL to spaCy v3 .spacy format."""
     tags_of_interest = tags_of_interest.split(",")
     nlp = spacy.blank(lang)
