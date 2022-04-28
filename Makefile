@@ -35,3 +35,7 @@ pypi:
 	python setup.py sdist
 	python setup.py bdist_wheel --universal
 	twine upload dist/*
+
+report:
+	python -m accuracy report training/model-best tests/data/train.spacy tests/data/train.spacy
+	python -m http.server --directory reports 12345
