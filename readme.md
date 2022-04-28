@@ -4,7 +4,7 @@
 
 > It's pronounced "accura-see". For spaCy models.
 
-The goal of this project is to generate dashboards for spaCy models to help understand the accuracy metrics.
+The goal of this project is to generate reports for spaCy models to help understand the accuracy metrics.
 
 ## usage
 
