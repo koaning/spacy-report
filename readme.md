@@ -28,13 +28,7 @@ and you can explore the values by hovering over the chart.
 
 ## install 
 
-You can install this project via pip. 
-
-```
-python -m pip install accuracy
-```
-
-Alternatively, you may also install the latest from git. 
+You can install the latest version from git. 
 
 ```
 python -m pip install "accuracy @ git+https://github.com/koaning/accuracy.git"
