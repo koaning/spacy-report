@@ -6,7 +6,7 @@ base_packages = [
     "spacy>=3.0.0",
     "altair>=4.2.0",
     "clumper>=0.2.15",
-    "rich>=12.3.0",
+    "rich>=10.3.0",
     "scikit-learn>=1.0.0",
     "typer>=0.3.0",
     "Jinja2>=3.1.1",
@@ -22,7 +22,7 @@ dev_packages = [
 
 setup(
     name="accuracy",
-    version="0.1.0",
+    version="0.1.1",
     author="Vincent D. Warmerdam",
     packages=find_packages(exclude=["notebooks", "docs"]),
     description="It's pronounced accura-see. For spaCy models.",
@@ -30,9 +30,9 @@ setup(
     long_description_content_type="text/markdown",
     url="https://koaning.github.io/accuracy/",
     project_urls={
-        "Documentation": "https://koaning.github.io/whatlies/",
-        "Source Code": "https://github.com/koaning/whatlies/",
-        "Issue Tracker": "https://github.com/koaning/whatlies/issues",
+        "Documentation": "https://koaning.github.io/accuracy/",
+        "Source Code": "https://github.com/koaning/accuracy/",
+        "Issue Tracker": "https://github.com/koaning/accuracy/issues",
     },
     install_requires=base_packages,
     extras_require={"base": base_packages, "dev": base_packages + dev_packages},

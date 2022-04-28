@@ -1,7 +1,7 @@
 .PHONY: docs
 
 black:
-	black accuracy tests setup.py --check
+	black --target-version py38 accuracy tests setup.py --check
 
 install:
 	python -m pip install --upgrade pip wheel twine

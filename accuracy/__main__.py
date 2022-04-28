@@ -1,16 +1,18 @@
+import pathlib
+import warnings
+from pkg_resources import resource_filename
+
 import spacy
 from spacy.tokens import DocBin
 import typer
-import pathlib
-import warnings
 import altair as alt
 from rich.progress import track
 from rich.console import Console
-from pkg_resources import resource_filename
 from jinja2 import Environment, select_autoescape, FileSystemLoader
 
 from accuracy._charts import make_plots
 from accuracy import __version__
+
 
 app = typer.Typer(
     name="accuraCy",
@@ -62,16 +64,16 @@ def report(
             # Prepare plotting objects
             p1, p2 = make_plots(orig_train_docbin, pred_train_clump, tag=tag)
             p3, p4 = make_plots(orig_valid_docbin, pred_valid_clump, tag=tag)
-            
+
             # Render the density charts
-            with alt.themes.enable('opaque'):
+            with alt.themes.enable("opaque"):
                 json_hist = (
                     p1.properties(title="Train") | p3.properties(title="Dev")
                 ).to_json()
             pathlib.Path(folder_out, f"{tag}-hist.json").write_text(json_hist)
 
             # Render the acc/precision/recall charts.
-            with alt.themes.enable('opaque'):
+            with alt.themes.enable("opaque"):
                 json_scores = (
                     p2.properties(title="Train") | p4.properties(title="Dev")
                 ).to_json()
