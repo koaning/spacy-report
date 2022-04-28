@@ -1,4 +1,5 @@
 import spacy
+from spacy.tokens import DocBin
 import typer
 import pathlib
 import warnings
@@ -41,33 +42,34 @@ def report(
                     f"[red]Warning! '{classname}' label not found in model. Skipping... [/red]"
                 )
         tags_of_interest = [c for c in tags_of_interest if c in classes.split(",")]
-    clump_train = Clumper.read_jsonl(train_path)
-    clump_dev = Clumper.read_jsonl(dev_path)
+
+    orig_train_docbin = list(DocBin().from_disk(train_path).get_docs(nlp.vocab))
+    orig_valid_docbin = list(DocBin().from_disk(dev_path).get_docs(nlp.vocab))
 
     # At the time of writing this the thinc library has an annoying
     with warnings.catch_warnings():
         warnings.filterwarnings("ignore")
         console.print("Running model on training data...")
-        docs_train = list(nlp.pipe([_["text"] for _ in clump_train]))
+        pred_train_clump = list(nlp.pipe([_.text for _ in orig_train_docbin]))
         console.print("Running model on development data...")
-        docs_dev = list(nlp.pipe([_["text"] for _ in clump_dev]))
+        pred_valid_clump = list(nlp.pipe([_.text for _ in orig_valid_docbin]))
 
-    alt.data_transformers.disable_max_rows()
+        alt.data_transformers.disable_max_rows()
 
-    if not folder_out.exists():
-        folder_out.mkdir(parents=True)
+        if not folder_out.exists():
+            folder_out.mkdir(parents=True)
 
-    for tag in track(tags_of_interest, "Generating Charts"):
-        p1, p2 = make_plots(clump_train, docs=docs_train, tag=tag)
-        p3, p4 = make_plots(clump_dev, docs=docs_dev, tag=tag)
-        json_hist = (
-            p1.properties(title="Train") | p3.properties(title="Dev")
-        ).to_json()
-        pathlib.Path(f"reports/{tag}-hist.json").write_text(json_hist)
-        json_scores = (
-            p2.properties(title="Train") | p4.properties(title="Dev")
-        ).to_json()
-        pathlib.Path(f"reports/{tag}-scores.json").write_text(json_scores)
+        for tag in track(tags_of_interest, "Generating Charts"):
+            p1, p2 = make_plots(orig_train_docbin, pred_train_clump, tag=tag)
+            p3, p4 = make_plots(orig_valid_docbin, pred_valid_clump, tag=tag)
+            json_hist = (
+                p1.properties(title="Train") | p3.properties(title="Dev")
+            ).to_json()
+            pathlib.Path(folder_out, f"{tag}-hist.json").write_text(json_hist)
+            json_scores = (
+                p2.properties(title="Train") | p4.properties(title="Dev")
+            ).to_json()
+            pathlib.Path(folder_out, f"{tag}-scores.json").write_text(json_scores)
 
     env = Environment(
         loader=FileSystemLoader(resource_filename("accuracy", "templates")),
@@ -83,7 +85,7 @@ def report(
 @app.command()
 def version():
     """Show version number."""
-    return __version__
+    print(__version__)
 
 
 if __name__ == "__main__":
