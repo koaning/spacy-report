@@ -45,7 +45,7 @@ def report(
     orig_train_docbin = list(DocBin().from_disk(train_path).get_docs(nlp.vocab))
     orig_valid_docbin = list(DocBin().from_disk(dev_path).get_docs(nlp.vocab))
 
-    # At the time of writing this the thinc library has an annoying
+    # At the time of writing this the thinc library has an annoying warning
     with warnings.catch_warnings():
         warnings.filterwarnings("ignore")
         console.print("Running model on training data...")
@@ -59,15 +59,22 @@ def report(
             folder_out.mkdir(parents=True)
 
         for tag in track(tags_of_interest, "Generating Charts"):
+            # Prepare plotting objects
             p1, p2 = make_plots(orig_train_docbin, pred_train_clump, tag=tag)
             p3, p4 = make_plots(orig_valid_docbin, pred_valid_clump, tag=tag)
-            json_hist = (
-                p1.properties(title="Train") | p3.properties(title="Dev")
-            ).to_json()
+            
+            # Render the density charts
+            with alt.themes.enable('opaque'):
+                json_hist = (
+                    p1.properties(title="Train") | p3.properties(title="Dev")
+                ).to_json()
             pathlib.Path(folder_out, f"{tag}-hist.json").write_text(json_hist)
-            json_scores = (
-                p2.properties(title="Train") | p4.properties(title="Dev")
-            ).to_json()
+
+            # Render the acc/precision/recall charts.
+            with alt.themes.enable('opaque'):
+                json_scores = (
+                    p2.properties(title="Train") | p4.properties(title="Dev")
+                ).to_json()
             pathlib.Path(folder_out, f"{tag}-scores.json").write_text(json_scores)
 
     env = Environment(
