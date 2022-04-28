@@ -4,7 +4,6 @@ import typer
 import pathlib
 import warnings
 import altair as alt
-from clumper import Clumper
 from rich.progress import track
 from rich.console import Console
 from pkg_resources import resource_filename
