@@ -59,6 +59,8 @@ Commands:
   version  Show version number.
 ```
 
+### `accuracy report`
+
 The most important command is the `report` command. You'd typically use it via 
 a command similar to:
 
