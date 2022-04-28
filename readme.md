@@ -64,7 +64,15 @@ The most important command is the `report` command. You'd typically use it via
 a command similar to:
 
 ```
-python -m accuracy report training/model-best/ corpus/train.spacy corpus/dev.spacy
+> python -m accuracy report training/model-best/ corpus/train.spacy corpus/dev.spacy
+
+Loading model at training/model-best
+Running model on training data...
+Running model on development data...
+Generating Charts ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Done! You can view the report via;
+
+python -m http.server --directory reports PORT 
 ```
 
 This will generate a folder, typically called "reports", that contains a full 
