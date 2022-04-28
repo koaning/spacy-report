@@ -27,5 +27,9 @@ jobs:
       run: python -m pip install -e .
     - name: Install Pytest
       run: python -m pip install pytest
+    - name: Prepare Pytest
+      run: |
+        python tests/prepare.py en tests/data/train.jsonl tests/data/train.spacy "cat,dog"
+	      python -m spacy train tests/configs/config.cfg --output training/ --paths.train tests/data/train.spacy --paths.dev tests/data/train.spacy --nlp.lang en --gpu-id -1
     - name: Run Pytest
       run: python -m pytest tests
