@@ -6,6 +6,8 @@ black:
 install:
 	python -m pip install --upgrade pip wheel twine
 	python -m pip install -e ".[dev]"
+	python tests/prepare.py en tests/data/train.jsonl tests/data/train.spacy "cat,dog"
+	python -m spacy train tests/configs/config.cfg --output training/ --paths.train tests/data/train.spacy --paths.dev tests/data/train.spacy --nlp.lang en --gpu-id -1
 
 flake:
 	flake8 setup.py --count --statistics --max-complexity=10 --max-line-length=127

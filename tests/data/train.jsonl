@@ -1,0 +1,4 @@
+{"text": "this is an amazing dog", "cats": {"dog": 1.0, "cat": 0.0}}
+{"text": "whata doggy is a good boy!?", "cats": {"dog": 1.0, "cat": 0.0}}
+{"text": "cats are amazing", "cats": {"dog": 0.0, "cat": 1.0}}
+{"text": "that's a great cat right there", "cats": {"dog": 0.0, "cat": 1.0}}

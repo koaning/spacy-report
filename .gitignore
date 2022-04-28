@@ -156,3 +156,5 @@ cython_debug/
 .vscode
 reports
 *.ipynb
+tests/data/train.spacy
+training
