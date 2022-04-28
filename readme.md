@@ -6,6 +6,27 @@
 
 The goal of this project is to generate reports for spaCy models.
 
+## what it does
+
+The goal of `accuraCy` is to offer static reports for spaCy models that
+help users make better decisions on how the models can be used. At the 
+moment the project supports reports for threshold values for classification 
+models trained with spaCy. 
+
+Here's a preview of what to expect:
+
+![](gif.gif)
+
+There are two kinds of charts.
+
+1. The first kind is a density chart. This chart shows the distribution
+of confidence scores for a given class. The blue area represents documents
+that had the tag assigned to the class. The orange area represents documents
+that didn't.
+2. The second kind is a line chart that demonstrates the accuracy, precision
+and recall values for a given confidence threshold. It's an interactive chart
+and you can explore the values by hovering over the chart.
+
 ## install 
 
 You can install this project via pip. 
