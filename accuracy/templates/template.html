@@ -1,0 +1,16 @@
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/gh/koaning/justcharts/justcharts.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    {% for tag in tags %}
+    <div class="p-10">
+        <h2 class="text-2xl font-bold">label: <code class="bg-gray-200 p-2">{{tag}}</code></h2>
+        <vegachart schema-url="{{tag}}-hist.json"></vegachart>
+        <vegachart schema-url="{{tag}}-scores.json"></vegachart>
+    </div>
+    {% endfor %}
+</body>
