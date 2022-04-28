@@ -8,6 +8,8 @@ base_packages = [
     "clumper>=0.2.15",
     "rich>=12.3.0",
     "scikit-learn>=1.0.0",
+    "typer>=0.4.1",
+    "Jinja2>=3.1.1"
 ]
 
 dev_packages = [
