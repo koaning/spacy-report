@@ -10,8 +10,7 @@ The goal of this project is to generate reports for spaCy models.
 
 The goal of `accuraCy` is to offer static reports for spaCy models that
 help users make better decisions on how the models can be used. At the 
-moment the project supports reports for threshold values for classification 
-models trained with spaCy. 
+moment the project supports reports for threshold values for classification. 
 
 Here's a preview of what to expect:
 
