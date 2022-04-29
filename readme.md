@@ -2,7 +2,7 @@
 
 # accuraCy
 
-> It's pronounced "accura-see". For spaCy models.
+> "accura-see" ... for spaCy models.
 
 The goal of this project is to generate reports for [spaCy](https://spacy.io/) models.
 
