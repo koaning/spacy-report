@@ -14,7 +14,7 @@ moment the project supports reports for threshold values for classification.
 
 Here's a preview of what to expect:
 
-![](https://raw.githubusercontent.com/koaning/accuraCy/main/gif.gif)
+![](gif.gif)
 
 There are two kinds of charts.
 
