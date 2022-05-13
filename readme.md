@@ -1,16 +1,14 @@
 <img src="https://github.com/koaning/accuraCy/raw/main/icon.png" width=175 height=175 align="right">
 
-# accuraCy
+# spacy-reports
 
-> "accura-see" ... for spaCy models.
-
-The goal of this project is to generate reports for [spaCy](https://spacy.io/) models.
+> The goal of this project is to generate reports for [spaCy](https://spacy.io/) models.
 
 ## what it does
 
-The goal of `accuraCy` is to offer static reports for spaCy models that
+The goal of `spacy-reports` is to offer static reports for spaCy models that
 help users make better decisions on how the models can be used. At the 
-moment the project supports reports for threshold values for classification. 
+moment the project supports interactive views for threshold values for classification. 
 
 Here's a preview of what to expect:
 
