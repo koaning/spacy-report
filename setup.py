@@ -25,9 +25,6 @@ setup(
     version="0.1.1",
     author="Vincent D. Warmerdam",
     packages=find_packages(exclude=["notebooks", "docs"]),
-    description="It's pronounced accura-see. For spaCy models.",
-    long_description=pathlib.Path("readme.md").read_text(),
-    long_description_content_type="text/markdown",
     url="https://koaning.github.io/spacy_report/",
     project_urls={
         "Documentation": "https://koaning.github.io/spacy_report/",
@@ -37,14 +34,4 @@ setup(
     install_requires=base_packages,
     extras_require={"base": base_packages, "dev": base_packages + dev_packages},
     package_data={"spacy_report": ["templates/*.html", "templates/*.js"]},
-    classifiers=[
-        "Intended Audience :: Science/Research",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "License :: OSI Approved :: MIT License",
-        "Topic :: Scientific/Engineering",
-        "Topic :: Scientific/Engineering :: Artificial Intelligence",
-    ],
 )

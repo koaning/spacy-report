@@ -1,4 +1,4 @@
-<img src="https://github.com/koaning/accuraCy/raw/main/icon.png" width=175 height=175 align="right">
+<img src="https://github.com/koaning/spacy-report/raw/main/icon.png" width=175 height=175 align="right">
 
 # spacy-reports
 
@@ -34,7 +34,7 @@ python -m pip install "accuracy @ git+https://github.com/koaning/accuracy.git"
 
 ## usage
 
-The `accuracy` project provides a command line interface that can
+The `spacy-report` project provides a command line interface that can
 generate reports. The full CLI can also be explored via the `--help` flag. 
 
 ```
