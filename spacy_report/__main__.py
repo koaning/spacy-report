@@ -10,19 +10,28 @@ from rich.progress import track
 from rich.console import Console
 from jinja2 import Environment, select_autoescape, FileSystemLoader
 
-from accuracy._charts import make_plots
-from accuracy import __version__
+from spacy_report._charts import make_plots
+from spacy_report import __version__
+from spacy.cli._util import app
 
 
-app = typer.Typer(
-    name="accuraCy",
+report_cli = typer.Typer(
+    name="report",
     add_completion=False,
-    help="It's pronounced 'accura-see'. For spaCy models.",
+    help="Generate reports for spaCy models.",
+    no_args_is_help=True
 )
+app.add_typer(report_cli)
 
 
-@app.command()
-def report(
+@report_cli.command("version")
+def version():
+    """Print the version number."""
+    typer.echo(__version__)
+
+
+@report_cli.command("textcat")
+def textcat_report(
     model_path: pathlib.Path = typer.Argument(None, help="Path to spaCy model"),
     train_path: pathlib.Path = typer.Argument(None, help="Path to training data"),
     dev_path: pathlib.Path = typer.Argument(None, help="Path to development data"),
@@ -80,7 +89,7 @@ def report(
             pathlib.Path(folder_out, f"{tag}-scores.json").write_text(json_scores)
 
     env = Environment(
-        loader=FileSystemLoader(resource_filename("accuracy", "templates")),
+        loader=FileSystemLoader(resource_filename("spacy_report", "templates")),
         autoescape=select_autoescape(["html", "xml"]),
     )
 
@@ -88,12 +97,6 @@ def report(
     pathlib.Path(folder_out, "index.html").write_text(dashboard)
     console.print("Done! You can view the report via;\n")
     console.print(f"python -m http.server --directory {folder_out} PORT \n")
-
-
-@app.command()
-def version():
-    """Show version number."""
-    print(__version__)
 
 
 if __name__ == "__main__":

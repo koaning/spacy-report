@@ -21,22 +21,22 @@ dev_packages = [
 ]
 
 setup(
-    name="accuracy",
+    name="spacy_report",
     version="0.1.1",
     author="Vincent D. Warmerdam",
     packages=find_packages(exclude=["notebooks", "docs"]),
     description="It's pronounced accura-see. For spaCy models.",
     long_description=pathlib.Path("readme.md").read_text(),
     long_description_content_type="text/markdown",
-    url="https://koaning.github.io/accuracy/",
+    url="https://koaning.github.io/spacy_report/",
     project_urls={
-        "Documentation": "https://koaning.github.io/accuracy/",
-        "Source Code": "https://github.com/koaning/accuracy/",
-        "Issue Tracker": "https://github.com/koaning/accuracy/issues",
+        "Documentation": "https://koaning.github.io/spacy_report/",
+        "Source Code": "https://github.com/koaning/spacy_report/",
+        "Issue Tracker": "https://github.com/koaning/spacy_report/issues",
     },
     install_requires=base_packages,
     extras_require={"base": base_packages, "dev": base_packages + dev_packages},
-    package_data={"accuracy": ["templates/*.html", "templates/*.js"]},
+    package_data={"spacy_report": ["templates/*.html", "templates/*.js"]},
     classifiers=[
         "Intended Audience :: Science/Research",
         "Programming Language :: Python :: 3",
