@@ -26,10 +26,16 @@ and you can explore the values by hovering over the chart.
 
 ## install 
 
-You can install the latest version from git. 
+You can install `spacy-report` via pip.
 
 ```
-python -m pip install "accuracy @ git+https://github.com/koaning/accuracy.git"
+python -m pip install spacy-report
+```
+
+Alternatively, you can install the latest version from git too. 
+
+```
+python -m pip install "spacy-report @ git+https://github.com/koaning/spacy-report.git"
 ```
 
 ## usage
