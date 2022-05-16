@@ -19,7 +19,7 @@ report_cli = typer.Typer(
     name="report",
     add_completion=False,
     help="Generate reports for spaCy models.",
-    no_args_is_help=True
+    no_args_is_help=True,
 )
 app.add_typer(report_cli)
 

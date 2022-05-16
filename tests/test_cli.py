@@ -35,6 +35,7 @@ def test_smoke_test(tmpdir):
 
 
 def test_spacy_detects_cli():
+    """Make sure that we can call the commands directly from spaCy"""
     command = "python -m spacy report --help"
     response = subprocess.run(command.split(" "))
     assert response.returncode == 0
