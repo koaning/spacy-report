@@ -26,7 +26,7 @@ app.add_typer(report_cli)
 
 @report_cli.command("version")
 def version():
-    """Print the version number."""
+    """Print the version of spacy_report."""
     typer.echo(__version__)
 
 
@@ -40,7 +40,7 @@ def textcat_report(
     ),
     classes: str = typer.Option(None, help="Comma-separated string of classes to use"),
 ):
-    """Generate a model report."""
+    """Generate a report for textcat models."""
     console = Console()
     console.print(f"Loading model at {model_path}")
     nlp = spacy.load(model_path)

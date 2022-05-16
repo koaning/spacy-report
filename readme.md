@@ -33,31 +33,30 @@ python -m pip install "accuracy @ git+https://github.com/koaning/accuracy.git"
 ```
 
 ## usage
+
 The `accuracy` project provides a command line interface that can
 generate reports. The full CLI can also be explored via the `--help` flag. 
 
 ```
-> python -m accuracy --help
+> python -m spacy report --help
+Usage: python -m spacy report [OPTIONS] COMMAND [ARGS]...
 
-Usage: python -m accuracy [OPTIONS] COMMAND [ARGS]...
-
-  It's pronounced 'accura-see'. For spaCy models.
+  Generate reports for spaCy models.
 
 Options:
   --help  Show this message and exit.
 
 Commands:
-  report   Generate a model report.
-  version  Show version number.
+  textcat  Generate a report for textcat models.
+  version  Print the version of spacy_report.
 ```
 
-### `accuracy report`
+### `textcat report`
 
-The most important command is the `report` command. You'd typically use it via 
-a command similar to:
+To generate reports for textcat models, you can use the `textcat` sub-command.
 
 ```
-> python -m accuracy report training/model-best/ corpus/train.spacy corpus/dev.spacy
+> python -m spacy report textcat training/model-best/ corpus/train.spacy corpus/dev.spacy
 
 Loading model at training/model-best
 Running model on training data...
@@ -68,7 +67,7 @@ Done! You can view the report via;
 python -m http.server --directory reports PORT 
 ```
 
-This will generate a folder, typically called "reports", that contains a full 
+This will generate a folder, "reports" by default, that contains a full 
 dashboard for the trained spaCy model found in `training/model-best`. 
 
 The CLI has a few configurable settings:
@@ -84,4 +83,3 @@ Options:
   --classes TEXT  Comma-separated string of classes to use
   --help          Show this message and exit.
 ```
-
