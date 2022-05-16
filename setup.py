@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 
 base_packages = [
-    "spacy>=3.0.0",
+    "spacy>=3.3.0",
     "altair>=4.2.0",
     "clumper>=0.2.15",
     "rich>=10.3.0",
