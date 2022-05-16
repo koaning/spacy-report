@@ -1,7 +1,7 @@
 .PHONY: docs
 
 black:
-	black --target-version py38 accuracy tests setup.py --check
+	black --target-version py38 spacy_report tests setup.py --check
 
 install:
 	python -m pip install --upgrade pip wheel twine
@@ -11,7 +11,7 @@ install:
 
 flake:
 	flake8 setup.py --count --statistics --max-complexity=10 --max-line-length=127
-	flake8 accuracy --count --statistics --max-complexity=10 --max-line-length=127 --exclude __init__.py
+	flake8 spacy_report --count --statistics --max-complexity=10 --max-line-length=127 --exclude __init__.py
 	flake8 tests --count --statistics --max-complexity=10 --max-line-length=127 --exclude __init__.py
 
 test:
@@ -19,7 +19,7 @@ test:
 
 interrogate:
 	interrogate -vv --ignore-nested-functions --ignore-semiprivate --ignore-private --ignore-magic --ignore-module --ignore-init-method --fail-under 100 tests
-	interrogate -vv --ignore-nested-functions --ignore-semiprivate --ignore-private --ignore-magic --ignore-module --ignore-init-method --fail-under 100 accuracy
+	interrogate -vv --ignore-nested-functions --ignore-semiprivate --ignore-private --ignore-magic --ignore-module --ignore-init-method --fail-under 100 spacy_report
 
 clean:
 	rm -rf .ipynb_checkpoints
@@ -27,7 +27,7 @@ clean:
 	rm -rf .pytest_cache
 	rm -rf build
 	rm -rf dist
-	rm -rf accuraCy.egg-info
+	rm -rf spacy_report.egg-info
 
 check: black flake interrogate test clean
 
@@ -37,5 +37,5 @@ pypi:
 	twine upload dist/*
 
 report:
-	python -m accuracy report training/model-best tests/data/train.spacy tests/data/train.spacy
+	python -m spacy_report report training/model-best tests/data/train.spacy tests/data/train.spacy
 	python -m http.server --directory reports 12345
