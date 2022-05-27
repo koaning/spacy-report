@@ -26,7 +26,7 @@ setup(
     packages=find_packages(exclude=["notebooks", "docs"]),
     url="https://koaning.github.io/spacy_report/",
     project_urls={
-        "Documentation": "https://koaning.github.io/spacy_report/",
+        "Documentation": "https://github.com/koaning/spacy_report/",
         "Source Code": "https://github.com/koaning/spacy_report/",
         "Issue Tracker": "https://github.com/koaning/spacy_report/issues",
     },
